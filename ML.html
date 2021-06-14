@@ -7,19 +7,20 @@
 
 <body>
 	<div class="title">
-		Hello, goorm!
+		[ 한우 초음파 이미지 육질 예측 ]
+ 		 - 기종 : HS2000vet
 	</div>
 	<div>Teachable Machine Image Model</div>
-	<button type="button" onclick="init()">Start</button>
-	<button type="button" onclick="predict()">Predict</button>
+	<button type="button" onclick="init()"> 시 작 </button>
+	<button type="button" onclick="predict()"> 육질등급 예측 </button>
 	<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<div class="file-upload">
-		<button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+		<button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )"> 이미지 불러오기 </button>
 
 		<div class="image-upload-wrap">
 			<input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
 			<div class="drag-text">
-				<h3>Drag and drop a file or select add Image</h3>
+				<h3> 이곳에 이미지를 끌어오거나 위 버튼을 눌러 파일을 선택 </h3>
 			</div>
 		</div>
 		<div class="file-upload-content">
@@ -63,7 +64,7 @@
 			const prediction = await model.predict(image, false);
 			for (let i = 0; i < maxPredictions; i++) {
 				const classPrediction =
-					prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+					prediction[i].className + ": " + prediction[i].probability.toFixed(2)*100 + "%";
 				labelContainer.childNodes[i].innerHTML = classPrediction;
 			}
 		}
